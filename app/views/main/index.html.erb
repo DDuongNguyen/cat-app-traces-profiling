@@ -1,0 +1,20 @@
+<div class="title">HELLO IT IS I, MOMO</div>
+<div class='body'>
+  <% @cat.each do |cat| 
+    url= 'https://api.thecatapi.com/v1/images/search'
+    response = RestClient.get(url)
+    img = JSON.parse(response)[0]["url"]
+    %>
+    <div class='list'>
+      <p class='list-item'> Name: <%= cat.name %></p>
+      <p class='list-item'> Sex: <%= cat.sex %></p>
+      <p class='list-item'> Breed: <%= cat.breed %></p>
+    
+    <img src=<%= img %> width="100px" height="100px" />
+    </div>
+  <% end %>
+</div>
+
+<div class='stress-test'>
+</div>
+
